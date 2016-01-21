@@ -1,0 +1,43 @@
+<!--ref: https://google-developers.appspot.com/chart/interactive/docs/gallery/histogram-->
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+            ['Locations', 'Utilized', 'Free',{ role: 'annotation' } ],
+            ['L 1', Android.getNum1(), 24,  ''],
+            ['L 2', Android.getNum2(), 22,  ''],
+            ['L 3', Android.getNum3(), 22,  ''],
+            ['L 4', Android.getNum4(), 22,  ''],
+            ['L 5', Android.getNum5(), 22,  ''],
+            ['L 6', 28, 19,  '']
+          ]);
+
+      var view = new google.visualization.DataView(data);
+
+
+       var options = {
+               isStacked: 'true',
+               legend: {position: 'bottom', maxLines: 3},
+                chart: {
+                  title: 'Free Location List',
+
+                }
+              };
+
+     
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
+
+    </script>
+
+</head>
+<body>
+<div id="columnchart_values" style="width: 100%; height: 100%;"></div>
+</body>
+</html>
